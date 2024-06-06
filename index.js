@@ -19,7 +19,24 @@ init = async function () {
 
     // ウェブカメラをセットアップ
     const flip = true; // 画像を反転させるかどうか
-    webcam = new tmImage.Webcam(450, 300, flip); // カメラのサイズを指定
+
+    // カメラのセットアップオプションを取得
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    const videoDevices = devices.filter(device => device.kind === 'videoinput');
+    let backCameraId = null;
+    videoDevices.forEach(device => {
+        if (device.label.toLowerCase().includes('back')) {
+            backCameraId = device.deviceId;
+        }
+    });
+
+    // バックカメラが見つかった場合、そのIDを使用してWebcamをセットアップ
+    if (backCameraId) {
+        webcam = new tmImage.Webcam(450, 300, flip, backCameraId);
+    } else {
+        webcam = new tmImage.Webcam(450, 300, flip); // バックカメラが見つからない場合、デフォルトカメラを使用
+    }
+    
     await webcam.setup(); // カメラをセットアップ
     await webcam.play(); // カメラを起動
 
