@@ -19,7 +19,7 @@ init = async function () {
 
     // ウェブカメラをセットアップ
     const flip = true; // 画像を反転させるかどうか
-    webcam = new tmImage.Webcam(450, 300, flip); // カメラのサイズを指定
+    webcam = new tmImage.Webcam(450, 300); // カメラのサイズを指定
     await webcam.setup({facingMode: "environment"}); // カメラをセットアップ
     await webcam.play(); // カメラを起動
 
