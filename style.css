@@ -40,11 +40,11 @@ td{
     font-weight: bold;
 }
 h1{
-    font-size: 700%;
+    font-size: 600%;
 }
 
 tr{
-    font-size: 150%;
+    font-size: 250%;
 }
 
 .image-button-text {
@@ -55,7 +55,7 @@ tr{
 
 button {
     font-family: 'Kaisei Decol', sans-serif;
-    font-size: 4.1rem; /* フォントサイズを指定 */
+    font-size: 3.1rem; /* フォントサイズを指定 */
     background-color: #4CAF50; /* 背景色 */
     color: white; /* テキスト色 */
     padding: 1rem 2rem; /* 内側の余白 */
