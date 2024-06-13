@@ -74,4 +74,7 @@ button:hover {
     h2{
         font-size:230%;
     }
+    button{
+        font-size: 250%;
+    }
 }
